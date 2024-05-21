@@ -77,6 +77,8 @@ ptree *eval_term()
 	if (curr_token == CONC) {
 		get_token();
 		root = make_ptree(CONC, 0, root, eval_term());
+	} else if (curr_token == EMPTY || curr_token == EPSILON || curr_token == LETTER || curr_token == LPAR) { // for assignment 3.9
+		root = make_ptree(CONC, 0, root, eval_term());
 	}
 
 	return root;

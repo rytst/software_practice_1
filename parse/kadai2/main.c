@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
   if (argc == 2) {
     reg_string = argv[1];
     parse();
-  } else if (argc == 3) {
+  } else if (argc == 3) { // for assignment 3.8
     option = argv[1];
     reg_string = argv[2];
 
