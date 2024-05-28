@@ -263,11 +263,8 @@ void add_nedge(int nv1, int nv2, int label)
   if (nvlist[nv1] == NULL) {
     nvlist[nv1] = elp;
   } else {
-    elp2 = elp->next;
-    while (elp2 != NULL) {
-      elp2 = elp2->next;
-    }
-    elp2 = elp;
+    for (elp2 = nvlist[nv1]; elp2->next != NULL; elp2 = elp2->next) {}
+    elp2->next = elp;
   }
 }
 
