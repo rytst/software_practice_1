@@ -190,8 +190,13 @@ void check_dvertex(int dv1)
    *     }
    */
 
-  for (int i=0; i < etable_enum; i++) {
-    search_dvertex();
+  for (i=0; i < etable_enum; i++) {
+    dv2 = search_dvertex(etable[i].nvset);
+    if (dv2 == NOT_FOUND) {
+      dv2 = gen_dvertex();
+      set_nvset(dv2, etable[i].nvset);
+    }
+    add_dedge(dv1, dv2, etable[i].label);
   }
 
   /* 使用した辺テーブルの掃除 */
@@ -236,7 +241,7 @@ void add_etable_entry(int lab, int dv)
   }
   
   /* ラベルが登録されていなかったら新しいエントリを追加 */
-  if (etable_enum >= MAX_ETABLE_ENUM) 
+  if (etable_enum >= MAX_ETABLE_ENUM)
     fatal_error("too much etable entries");
 
   etable[etable_enum].label = lab;
@@ -283,6 +288,9 @@ void set_nvset(int dv, unsigned char *nvset)
    * (1)  すべての頂点(0〜nvnum-1)について調べる.
    * (1-1) 頂点dvのDFA頂点リストdvlist[]のNFA頂点集合nvset[]に，与えられたnvset[]を代入する.
    */
+  for (int i=0; i < nvnum; i++) {
+    dvlist[dv].nvset[i] = nvset[i];
+  }
 }
 
 /* 2つの NFA 頂点集合が等しいか判定する */
