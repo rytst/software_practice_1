@@ -88,6 +88,22 @@ Final states: 0 1
 ```
 
 
+実行例5: その他の例についても正常に動作するかどうかを確認
+```
+$ ./kadai4 -d4 '(a.b|c)*'
+DFA
+Number of DFA states: 4
+Initial state: 0
+(c) 0 => 2
+(a) 0 => 1
+(b) 1 => 3
+(c) 2 => 2
+(a) 2 => 1
+(c) 3 => 2
+(a) 3 => 1
+Final states: 0 2 3
+```
+
 
 = プログラムの流れの説明
 
