@@ -76,10 +76,15 @@ Initial state: 0
 Final states: 2
 ```
 
-
 実行例4: その他の例についても正常に動作するかどうかを確認
 ```
-
+$ ./kadai4 -d4 '(a|\0)*'
+DFA
+Number of DFA states: 2
+Initial state: 0
+(a) 0 => 1
+(a) 1 => 1
+Final states: 0 1
 ```
 
 
