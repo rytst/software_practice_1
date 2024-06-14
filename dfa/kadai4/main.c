@@ -50,7 +50,7 @@ int main( int argc, char *argv[] )
       /*
        *  課題5.10 DFA(決定性有限オートマトン)を作るための処理
        */
-      printf("DFA(決定性有限オートマトン)\n");
+      printf("DFA\n");
       make_dfa();
       break;
     default:
