@@ -127,10 +127,20 @@ int main(int argc, char *argv[])
      *   "==> ファイル名 <==" という行を表示してから，
      *   grep の結果を表示すること
      */
+
+    int is_mult_file = 0; // flag
+
+    if (argc > 1) {
+      is_mult_file = 1;
+    }
+
     while (argc-- > 0) {
       if ((fp = fopen(*argv++, "r")) == NULL) {
 	      fatal_error("ファイルを開けません");
 	      exit(1);
+      }
+      if (is_mult_file) {
+        printf("==> %s <==\n", *(argv-1));
       }
       do_grep(fp);
       fclose(fp);
