@@ -228,6 +228,24 @@ char *match_string(char *str)
   
   /* ループを出てきたとき受理頂点にいればマッチ */
   
+  for (;;) {
+    for (elp = dvlist[dv].elp;; elp = elp->next) {
+      if (elp == NULL) {
+        return NULL;
+      }
+      if (*str == elp->label) {
+        dv = elp->node;
+        if (dvlist[dv].nvset[final_nv] == 1) {
+          return ++str;
+        }
+        break;
+      }
+    }
+    str++;
+    if (str == NULL) {
+      return NULL;
+    }
+  }
 }
 
 /* 行 p の from から to の前までに ^ を表示 */
