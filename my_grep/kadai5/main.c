@@ -49,23 +49,23 @@ int main(int argc, char *argv[])
     while ((c = *++argv[0])) {
       switch(c) {
       case 'v':
-	vflag = 1;
-	break;
+	      vflag = 1;
+	      break;
       case 's':
-	sflag = 1;
-	break;
+	      sflag = 1;
+	      break;
       case 'd':
-	dflag = 1; 
-	/* d の後は数字でないといけない */
-	if (!(isdigit(doption = *++argv[0]))) {
-	  fatal_error("-dオプションの後には数字を指定すること");
-	  usage_exit();
-	}
-	break;
+	      dflag = 1; 
+	      /* d の後は数字でないといけない */
+	      if (!(isdigit(doption = *++argv[0]))) {
+	        fatal_error("-dオプションの後には数字を指定すること");
+	        usage_exit();
+	      }
+	      break;
       default:
-	fatal_error("オプションの指定に不備あり");
-	usage_exit();
-	break;
+	      fatal_error("オプションの指定に不備あり");
+	      usage_exit();
+	      break;
       }
     }
   }
@@ -129,8 +129,8 @@ int main(int argc, char *argv[])
      */
     while (argc-- > 0) {
       if ((fp = fopen(*argv++, "r")) == NULL) {
-	fatal_error("ファイルを開けません");
-	exit(1);
+	      fatal_error("ファイルを開けません");
+	      exit(1);
       }
       do_grep(fp);
       fclose(fp);
@@ -173,9 +173,9 @@ void do_grep(FILE *fp)
     }
 
     if ((from = match_line(buf, &to)) != NULL) {
-      fputs(buf, stdout); 
+      fputs(buf, stdout);
       if (vflag)
-	show_region(buf, from, to);  
+	      show_region(buf, from, to);
     }
   }
 }
@@ -194,7 +194,7 @@ char *match_line(char *line, char **end)
     /* 正規表現にマッチする文字列が行にあるか */
     for (p = line; *p != '\0'; p++) {
       if ((*end = match_string(p)) != NULL) {
-	return p;
+	      return p;
       }
     }
   }
