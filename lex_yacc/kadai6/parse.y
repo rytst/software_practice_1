@@ -62,7 +62,11 @@ static relation table[] = {
 
 %%
 
-start:  start EOEXPR start
+start:  start EOEXPR {
+  printf( "EOEXPR found\n" );
+} start {
+  printf( "end of rule\n" );
+}
         | expr { printAnswer($1); }
         |
         ;

@@ -27,6 +27,6 @@ all: $(TARGET)
 clean:
 	rm -f $(OBJS) *~ parse.c lexer.c
 realclean:
-	rm -f $(OBJS) *~ parse.c lexer.c $(TARGET)
+	rm -f $(OBJS) *~ parse.c parse.h lexer.c $(TARGET)
 
 lexer.c: parse.h

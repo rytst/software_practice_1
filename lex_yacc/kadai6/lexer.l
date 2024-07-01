@@ -35,6 +35,8 @@ extern int debug;
 \) { return RPAR; }
 
 \n { return EOEXPR; }
+\; { return EOEXPR; }
+
 
 [ ] {} /* スペースは読み飛ばす */
 
