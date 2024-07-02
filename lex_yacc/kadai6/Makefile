@@ -3,7 +3,7 @@
 %.c: %.l
 	$(LEX) -o$@ $*.l
 %.c: %.y
-	$(YACC) -d --defines=$*.h -o $@ $<
+	$(YACC) -Wcounterexamples -d --defines=$*.h -o $@ $<
 
 CC       = gcc #-O2
 CCLINK    = gcc

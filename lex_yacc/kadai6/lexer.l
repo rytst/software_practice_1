@@ -21,7 +21,7 @@ extern int debug;
   return NUMBER;
 }
 
-[a-zA-Z_]+ {  /* 関数 */ 
+[0-9a-zA-Z_]+ {  /* 関数 */ 
   yylval.symbol = strdup(yytext);
   if (debug) printf("FUNCTION(%s)\n", yylval.symbol);
   return FUNCTION;
@@ -33,6 +33,7 @@ extern int debug;
 \/ { return DIV; }
 \( { return LPAR; }
 \) { return RPAR; }
+\, { return COMMA; }
 
 \n { return EOEXPR; }
 \; { return EOEXPR; }
