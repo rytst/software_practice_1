@@ -19,7 +19,7 @@ void yyerror(char *word);
 void printAnswer(double val);
 double execFunction(char *func, double *buffer, int count);
 
-int debug = 1; /* 1にするとデバッグモード */
+int debug = 0; /* 1にするとデバッグモード */
 
 
 /* 関数名と関数へのポインタの関連付けのための構造体 */
